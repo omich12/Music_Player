@@ -154,6 +154,166 @@ body {
     background-color: #185abc;
     color: white;
 }
+/* Right Panel - Album Cover and Lyrics */
+.right-panel {
+    width: 300px;
+    background-color: white;
+    border-left: 1px solid #e0e0e0;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+
+}
+
+
+.right-panel .album-display {
+    margin-bottom: 20px;
+}
+
+.right-panel .song-cover {
+    width: 200px;
+    height: 200px;
+    margin: 30px auto 15px; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.right-panel .song-cover img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.right-panel .song-info {
+    text-align: center;
+}
+
+.right-panel .song-info h3 {
+    font-size: 20px;
+    color: #202124;
+    margin-bottom: 5px;
+}
+
+.right-panel .song-info p {
+    font-size: 16px;
+    color: #5f6368;
+}
+
+.right-panel .lyrics-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.right-panel .lyrics-container h3 {
+    font-size: 18px;
+    color: #5f6368;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+#lyrics {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+
+#lyrics {
+    white-space: pre-line;
+    line-height: 1.8;
+    font-size: 15px;
+    color: #202124;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 5px;
+    scrollbar-width: thin; /* Firefox */
+}
+
+.panel-toggle {
+    position: fixed; /* ← make it fixed to screen */
+    top: 20px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background-color: #e0e0e0;
+    color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Position for left panel toggle */
+.left-toggle {
+    left: 10px; /* Always visible at left edge */
+}
+
+/* Position for right panel toggle */
+.right-toggle {
+    right: 10px; /* Always visible at right edge */
+}
+
+
+/* Position for left panel toggle */
+.left-toggle {
+    left: 280px;
+}
+
+/* Position for right panel toggle */
+.right-toggle {
+    right: 280px;
+}
+
+/* Hide left panel */
+.music-app.hide-left .left-panel {
+    transform: translateX(-100%);
+}
+
+/* Hide right panel */
+.music-app.hide-right .right-panel {
+    transform: translateX(100%);
+}
+
+/* Adjust toggle positions when panels are hidden */
+.music-app.hide-left .left-toggle {
+    left: 0;
+}
+
+.music-app.hide-right .right-toggle {
+    right: 0;
+}
+
+/* Optional scrollbar styling for WebKit browsers */
+#lyrics::-webkit-scrollbar {
+    width: 6px;
+}
+
+#lyrics::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+}
+
+#lyrics::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.panel-toggle {
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.panel-toggle:hover {
+    opacity: 1;
+}
+
 
 
 /* Repeat and Shuffle Button Styles */
