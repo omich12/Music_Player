@@ -10,6 +10,21 @@
 <body>
 <div class="background-blur" id="background-blur"></div>
     <div class="music-app">
+        <!-- Left Panel - Songs List -->
+        <div class="left-panel">
+            <h1>Songs List</h1>
+            <div class="search-container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search songs..." id="search-input">
+                </div>
+            </div>
+            
+            <ul id="song-list">
+                <!-- Songs will be added dynamically -->
+            </ul>
+        </div>
+
         <!-- Center Panel - Now Playing -->
         <div class="center-panel">
             <div class="now-playing">
@@ -26,6 +41,47 @@
             </div>
             
             <audio id="audio"></audio>
+            
+            <!-- Player Controls -->
+            <div class="player-controls">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress"></div>
+                    <div class="time-display">
+                        <span id="current-time">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="repeat-btn" title="Repeat"><i class="fas fa-redo"></i></button>
+                    <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                    <button id="play-btn"><i class="fas fa-play"></i></button>
+                    <button id="next-btn"><i class="fas fa-step-forward"></i></button>
+                    <button id="shuffle-btn" title="Shuffle"><i class="fas fa-random"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Album Cover and Lyrics -->
+        <div class="right-panel">
+            <h2>Description</h2>
+            <div class="album-display">
+                <div class="song-cover">
+                    <img src="" id="right-cover" alt="Album Cover">
+                </div>
+                <div class="song-info">
+                    <h3 id="right-album">Loading...</h3>
+                    <p id="right-artist">Please select a song</p>
+                </div>
+            </div>
+            
+            <div class="lyrics-container">
+                <h3>Lyrics</h3>
+                <div id="lyrics"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
