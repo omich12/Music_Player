@@ -83,6 +83,79 @@ body {
     color: #5f6368;
 }
 
+/* Player Controls */
+.player-controls {
+    padding: 15px 20px;
+    background-color: white;
+    border-top: 1px solid #e0e0e0;
+}
+
+.progress-container {
+    width: 100%;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: #1967d2;
+    width: 2%;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #5f6368;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #5f6368;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls button:hover {
+    color: #1967d2;
+    transform: scale(1.1);
+}
+
+    
+#play-btn {
+    background-color: #1967d2;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#play-btn:hover {
+    background-color: #185abc;
+    color: white;
+}
+
+
 /* Repeat and Shuffle Button Styles */
 #repeat-btn.active,
 #shuffle-btn.active {
