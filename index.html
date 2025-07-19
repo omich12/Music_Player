@@ -26,6 +26,26 @@
             </div>
             
             <audio id="audio"></audio>
+
+            <!-- Player Controls -->
+            <div class="player-controls">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress"></div>
+                    <div class="time-display">
+                        <span id="current-time">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="repeat-btn" title="Repeat"><i class="fas fa-redo"></i></button>
+                    <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                    <button id="play-btn"><i class="fas fa-play"></i></button>
+                    <button id="next-btn"><i class="fas fa-step-forward"></i></button>
+                    <button id="shuffle-btn" title="Shuffle"><i class="fas fa-random"></i></button>
+                </div>
+            </div>
+        </div>
     <script src="script.js"></script>
 </body>
 </html>
