@@ -767,5 +767,66 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         updateActiveSong();
     }
+    function updateActiveSong() {
+        const playlistItems = document.querySelectorAll('#song-list li');
+        playlistItems.forEach(item => item.classList.remove('playing'));
+        if (playlistItems[currentSongIndex]) {
+            playlistItems[currentSongIndex].classList.add('playing');
+        }
+    }
+
+    function handleSearch() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const playlistItems = document.querySelectorAll('#song-list li');
+        playlistItems.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(searchTerm) ? 'list-item' : 'none';
+        });
+    }
+
+    function setupEventListeners() {
+        playBtn.addEventListener('click', () => isPlaying ? pauseSong() : playSong());
+        prevBtn.addEventListener('click', prevSong);
+        nextBtn.addEventListener('click', nextSong);
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('ended', nextSong);
+        progress.parentElement.addEventListener('click', setProgress);
+        searchInput.addEventListener('input', handleSearch);
+
+        shuffleBtn.addEventListener('click', () => {
+            isShuffle = !isShuffle;
+            shuffleBtn.classList.toggle('active', isShuffle);
+        });
+
+        repeatBtn.addEventListener('click', () => {
+            isRepeat = !isRepeat;
+            repeatBtn.classList.toggle('active', isRepeat);
+        });
+
+        document.addEventListener('keydown', (e) => {
+        const tag = document.activeElement.tagName.toLowerCase();
+        if (tag === 'input' || tag === 'textarea') return;
+            switch (e.code) {
+                case 'Space':
+                    e.preventDefault();
+                    isPlaying ? pauseSong() : playSong();
+                    break;
+                case 'KeyP':
+                    prevSong();
+                    break;
+                case 'KeyF':
+                    nextSong();
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    audio.currentTime = Math.min(audio.currentTime + 10, audio.duration);
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    audio.currentTime = Math.max(audio.currentTime - 10, 0);
+                    break;
+            }
+        });
+    }
     initPlayer();
 });
